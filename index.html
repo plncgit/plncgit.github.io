@@ -118,11 +118,11 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
  
         $.ajax({
             type : 'post',
-            url : 'https://script.google.com/macros/s/AKfycbz94xNXrwY6sU6ssRaol3TKK7HM2816Tk2ZgU7SW3SYUyMZd3D1_vC2K6yyIrgUEWJt/exec',
+            url : 'https://script.google.com/macros/s/AKfycbwXDufIP35ArXGtPMDhzhM5rN6ZgWrqtIiAM-tSr0aSEQzPaw9KNS6wr7w51gHWQoqZ/exec',
             data : formValues,
             dataType : 'json',
             error: function(xhr, status, error){
-                alert(error);
+                alert("신청해주셔서 감사합니다. > 에러");
             },
             success : function(json){
                 alert("신청해주셔서 감사합니다.");
