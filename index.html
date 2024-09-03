@@ -103,11 +103,12 @@
  
 </script>  
 <script src="https://code.jquery.com/jquery-3.4.1.js">
-    
-var $searchForm = $("#eventForm");
 
-submit = function() {
-	$searchForm.attr({"action":"https://script.google.com/macros/s/AKfycbweDrn4m470Zw6Yp34V69HA8o1-7dURZgv36IWMdoZEsjMMS-IQ7YOa_2n0OG9XUB85/exec", "data-email":"jinhee3038@plnc.co.kr", "method":"post"}).submit();
+$(document).ready(function() {
+)};
+	
+function submit() {
+	$("#eventForm").attr({"action":"https://script.google.com/macros/s/AKfycbweDrn4m470Zw6Yp34V69HA8o1-7dURZgv36IWMdoZEsjMMS-IQ7YOa_2n0OG9XUB85/exec", "data-email":"jinhee3038@plnc.co.kr", "method":"post"}).submit();
 };
 
 
