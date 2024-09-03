@@ -53,6 +53,26 @@
             .system_container form button { margin-top:30px;width: 460px;height: 110px;font-size:40px;}
             .system_container form h2 { font-size: 70px;margin-bottom: 70px; }
         }
+ 
+.wrap-loading{ /*화면 전체를 어둡게 합니다.*/
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.2); /*not in ie */
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
+}
+    .wrap-loading div{ /*로딩 이미지*/
+        position: fixed;
+        top:50%;
+        left:50%;
+        margin-left: -21px;
+        margin-top: -21px;
+    }
+    .display-none{ /*감추기*/
+        display:none;
+    }
     </style>
 </head>
 <body>
@@ -103,6 +123,10 @@
             <div class="inner"><img src="https://github.com/user-attachments/assets/977f7182-f274-4be2-b4a1-96fbbde945b5" alt="PLNC 위치, 담당자 정보"></div>
         </div>
     </div>
+	<div class="wrap-loading display-none">
+	    <div>ㅂㅂㅂ</div>
+	</div> 
+	
 </body>
     
 </html>
@@ -126,7 +150,13 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
             },
             success : function(json){
                 alert("신청해주셔서 감사합니다.");
-            }
+            } ,
+	    beforeSend:function(){
+	    	 $('.wrap-loading').removeClass('display-none');
+	    },
+	    complete:function(){
+	        $('.wrap-loading').addClass('display-none');
+	    }
         });
   
     }
