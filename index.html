@@ -77,7 +77,8 @@
         </div>
         <div class=form_box>
             
-                <form class="gfrom" id="eventForm">
+                <form class="gfrom" method="POST" data-email="jinhee3038@plnc.co.kr"
+                     action="https://script.google.com/macros/s/AKfycbweDrn4m470Zw6Yp34V69HA8o1-7dURZgv36IWMdoZEsjMMS-IQ7YOa_2n0OG9XUB85/exec">
                 <h2>Contact Us</h2>
                 <label for="email">Email *</label>
                 <input id="email" name="email"  type="text">
@@ -87,7 +88,7 @@
                 <input id="name" name="name" type="text">
                 <label for="msg">Message</label>
                 <textarea id="msg" name="msg" type="text"></textarea><br>
-                <button id="buttonEvent" type="button" onclick="submit()">Submit</button>
+                <button type="submit">Submit</button>
             </form>
             
         </div>
@@ -99,18 +100,5 @@
 </body>
 </html>
 <script data-cfasync="false" type="text/javascript" src="https://cdn.jsdelivr.net/gh/dwyl/html-form-send-email-via-google-script-without-server@master/form-submission-handler.js">
-    window.scrollTo(0.0);    
- 
+    window.scrollTo(0.0);  
 </script>  
-<script src="https://code.jquery.com/jquery-3.4.1.js">
-
-$(document).ready(function() {
-)};
-	
-function submit() {
-	$("#eventForm").attr({"action":"https://script.google.com/macros/s/AKfycbweDrn4m470Zw6Yp34V69HA8o1-7dURZgv36IWMdoZEsjMMS-IQ7YOa_2n0OG9XUB85/exec", "data-email":"jinhee3038@plnc.co.kr", "method":"post"}).submit();
-};
-
-
-
-</script>
