@@ -140,6 +140,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
   	 var email = $("#email").val();
 	 if (!emailCheck(email)) {
 	 	alert("유효하지 않은 이메일 주소입니다.");
+		 return;
 	 }
         var formValues = $(".gform").serialize() ;
  
