@@ -146,16 +146,19 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
             data : formValues,
             dataType : 'json',
             error: function(xhr, status, error){
-                alert("신청해주셔서 감사합니다. > 에러");
+                alert("메일이 발송되지 않았습니다.");
             },
             success : function(json){
                 alert("신청해주셔서 감사합니다.");
+		    Location.reload();
             } ,
 	    beforeSend:function(){
 	    	 $('.wrap-loading').removeClass('display-none');
+		 $("body").css({overflow:'scroll'});
 	    },
 	    complete:function(){
 	        $('.wrap-loading').addClass('display-none');
+		$("body").css({overflow:'hidden'});
 	    }
         });
   
