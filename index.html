@@ -88,7 +88,7 @@
                 <input id="name" name="name" type="text">
                 <label for="msg">Message</label>
                 <textarea id="msg" name="msg" type="text"></textarea><br>
-                <button type="">Submit</button>
+                <button id="buttonEvent" type="">Submit</button>
             </form>
             
         </div>
@@ -104,5 +104,8 @@
  
 </script>  
 <script>
-     event.preventDefault();
+     $("#buttonEvent).addEventListener('click', function(e)) {
+e.preventDefault();
+});
+
 </script>
