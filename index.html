@@ -137,7 +137,10 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
 	 function ajax(){
-  	
+  	 var email = $("#email").val();
+	 if (!emailCheck(email)) {
+	 	alert("유효하지 않은 이메일 주소입니다.");
+	 }
         var formValues = $(".gform").serialize() ;
  
         $.ajax({
@@ -150,20 +153,27 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
             },
             success : function(json){
                 alert("신청해주셔서 감사합니다.");
-		    Location.reload();
+		location.reload();
             } ,
 	    beforeSend:function(){
-	    	 $('.wrap-loading').removeClass('display-none');
 		 $("body").css({overflow:'scroll'});
+	    	 $('.wrap-loading').removeClass('display-none');
 	    },
 	    complete:function(){
-	        $('.wrap-loading').addClass('display-none');
 		$("body").css({overflow:'hidden'});
+	        $('.wrap-loading').addClass('display-none');
 	    }
         });
   
     }
-	
+function emailCheck(email_address){     
+	email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+	if(!email_regex.test(email_address)){ 
+		return false; 
+	}else{
+		return true;
+	}
+}
 	
 </script>
 
