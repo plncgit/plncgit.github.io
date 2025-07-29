@@ -120,7 +120,14 @@
 
     .floating-png-button:hover img {
       transform: scale(1.1);
-    }		    
+    }
+/* 모바일 대응: 화면 너비 600px 이하일 때 */
+@media (max-width: 600px) {
+  .floating-png-button {
+	width: 150px;  
+	height: 100px;
+	top: 90%;     
+  }	
     </style>
 </head>
 <body>
