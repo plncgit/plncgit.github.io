@@ -234,14 +234,13 @@ function emailCheck(email_address){
 	}
 }
 
-  function scrollEmail() {
-    const formBox = document.getElementById("formBox");
-	
-    if (formBox) {
-      formBox.scrollIntoView({ behavior: "smooth" });
-	  $("#email").focus();
-    }
-  }	
+function scrollEmail() {
+  const offsetTop = $("#formBox").offset().top;
+
+  $("html, body").animate({ scrollTop: offsetTop }, 500, function () {
+	$("#email").focus();
+  });
+}	
 </script>
 
 
