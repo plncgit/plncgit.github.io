@@ -92,6 +92,35 @@
     .display-none{ /*감추기*/
         display:none;
     }
+    body {
+      height: 2000px; /* 스크롤 테스트용 */
+      margin: 0;
+    }
+
+    .floating-png-button {
+      position: fixed;
+      left: 50%;
+      top: 93%;
+      width: 300px;
+      height: 200px;
+      background: transparent;
+	  transform: translate(-50%, -50%);
+      border: none;
+      cursor: pointer;
+      z-index: 9999;
+      padding: 0;
+    }
+
+    .floating-png-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.2s;
+    }
+
+    .floating-png-button:hover img {
+      transform: scale(1.1);
+    }		    
     </style>
 </head>
 <body>
@@ -141,6 +170,9 @@
         <div class="footer">
             <div class="inner"><img src="https://github.com/user-attachments/assets/977f7182-f274-4be2-b4a1-96fbbde945b5" alt="PLNC 위치, 담당자 정보"></div>
         </div>
+	<button class="floating-png-button" onclick="scrollEmail()">
+		<img src="https://github.com/user-attachments/assets/c0dac79a-3607-4106-9dc6-933d69c4d11f" alt="이메일 문의 버튼">
+	</button>	    
     </div>
 	<div class="wrap-loading display-none">
 	    <div></div>
@@ -194,7 +226,15 @@ function emailCheck(email_address){
 		return true;
 	}
 }
+
+  function scrollEmail() {
+    const formBox = document.getElementById("formBox");
 	
+    if (formBox) {
+      formBox.scrollIntoView({ behavior: "smooth" });
+	  $("#email").focus();
+    }
+  }	
 </script>
 
 
