@@ -226,16 +226,18 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
                 alert("메일이 발송되지 않았습니다.");
             },
             success : function(json){
-                alert("신청해주셔서 감사합니다.");
-				 location.reload();
+              alert("신청해주셔서 감사합니다.");
+			  $(".gform")[0].reset();
+			  $("html, body").animate({ scrollTop: 0 }, 400);
+			  $("input, textarea").blur();
             } ,
 	    beforeSend:function(){
-		 $("body").css({overflow:'scroll'});
-	    	 $('.wrap-loading').removeClass('display-none');
+		$("body").css({overflow:'hidden'});
+		$('.wrap-loading').removeClass('display-none');
 	    },
 	    complete:function(){
-		$("body").css({overflow:'hidden'});
-	        $('.wrap-loading').addClass('display-none');
+		$("body").css({overflow:'auto'});
+	    $('.wrap-loading').addClass('display-none');
 	    }
         });
   
