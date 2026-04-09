@@ -77,14 +77,13 @@ if ('scrollRestoration' in history) {
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 <script>
-function ajaxSubmit(e){
-  e.preventDefault();
+function ajaxSubmit(){
 
   var email = $("#email").val();
 
   if (!emailCheck(email)) {
     alert("유효하지 않은 이메일 주소입니다.");
-    return false;
+    return;
   }
 
   var formValues = $(".gform").serialize();
@@ -94,28 +93,13 @@ function ajaxSubmit(e){
     url: 'https://script.google.com/macros/s/AKfycbxMupZqgu_n_FfEZZ-WqUtBUOAFPy9cV3Njgya-QOtqJz1VEKQ2saaT_51QWNCEVHJ7/exec',
     data: formValues,
     dataType: 'json',
-
     success: function(){
       alert("신청해주셔서 감사합니다.");
-      location.reload();
     },
-
     error: function(){
       alert("메일이 발송되지 않았습니다.");
-    },
-
-    beforeSend:function(){
-      $("body").css({overflow:'hidden'});
-      $('.wrap-loading').removeClass('display-none');
-    },
-
-    complete:function(){
-      $("body").css({overflow:'auto'});
-      $('.wrap-loading').addClass('display-none');
     }
   });
-
-  return false;
 }
 
 function emailCheck(email){
