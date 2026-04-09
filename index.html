@@ -227,7 +227,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
             },
             success : function(json){
                 alert("신청해주셔서 감사합니다.");
-		location.reload();
+				$(".gform")[0].reset();
             } ,
 	    beforeSend:function(){
 		 $("body").css({overflow:'scroll'});
