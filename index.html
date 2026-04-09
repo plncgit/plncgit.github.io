@@ -1,78 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>익수 감지 시스템 페이지</title>
 
-<script>
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
-</script>
-
 <style>
-/* (기존 스타일 그대로 유지) */
-* { box-sizing:border-box;padding:0;margin:0;font-family: -apple-system,"Malgun Gothic", sans-serif; }
+body { margin:0; font-family: "맑은 고딕", sans-serif; }
 
-.system_container form input, 
-.system_container form textarea {
-  width:100%;height:40px;border-radius:7px;margin:8px 0 13px 0;
+.form_box { text-align:center; background:#4D4C4C; padding:50px 10px; }
+form { max-width:600px; margin:0 auto; }
+form h2 { color:#fff; margin-bottom:20px; }
+form input, textarea {
+  width:100%; height:40px; margin:10px 0;
 }
+textarea { height:100px; }
 
-.wrap-loading {
-  position: fixed; left:0; right:0; top:0; bottom:0;
-  background: rgba(0,0,0,0.2);
-}
-
-.display-none { display:none; }
-
-.floating-png-button {
-  position: fixed;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 200px;
+button {
+  width:200px; height:50px; background:#5A6FFF; color:#fff;
+  border:none; border-radius:30px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="system_container">
-
 <div class="form_box" id="formBox">
 
-<!-- 🔥 수정된 form -->
-<form class="gform" onsubmit="return ajaxSubmit(event)">
-  <h2>Contact Us</h2>
+<!-- 🔥 핵심: submit 제거 -->
+<form class="gform">
 
-  <label>Email *</label>
-  <input id="email" name="email" type="text">
+<h2>Contact Us</h2>
 
-  <label>Phone number</label>
-  <input id="phone" name="phone" type="number">
+<input id="email" name="email" placeholder="Email">
+<input id="phone" name="phone" placeholder="Phone">
+<input id="name" name="name" placeholder="Name">
+<textarea id="msg" name="msg" placeholder="Message"></textarea>
 
-  <label>Name</label>
-  <input id="name" name="name" type="text">
+<!-- 🔥 버튼 방식 -->
+<button type="button" onclick="ajaxSubmit()">Submit</button>
 
-  <label>Message</label>
-  <textarea id="msg" name="msg"></textarea>
-
-  <!-- 🔥 submit 방식 변경 -->
-  <button type="submit">Submit</button>
 </form>
 
 </div>
-
-<button class="floating-png-button" onclick="scrollEmail();">
-  문의하기
-</button>
-
-</div>
-
-<div class="wrap-loading display-none"></div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
@@ -93,9 +63,11 @@ function ajaxSubmit(){
     url: 'https://script.google.com/macros/s/AKfycbxMupZqgu_n_FfEZZ-WqUtBUOAFPy9cV3Njgya-QOtqJz1VEKQ2saaT_51QWNCEVHJ7/exec',
     data: formValues,
     dataType: 'json',
+
     success: function(){
       alert("신청해주셔서 감사합니다.");
     },
+
     error: function(){
       alert("메일이 발송되지 않았습니다.");
     }
@@ -105,11 +77,6 @@ function ajaxSubmit(){
 function emailCheck(email){
   var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
   return regex.test(email);
-}
-
-function scrollEmail() {
-  const offsetTop = $("#formBox").offset().top;
-  $("html, body").animate({ scrollTop: offsetTop }, 500);
 }
 </script>
 
