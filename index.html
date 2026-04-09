@@ -237,9 +237,11 @@ function scrollEmail() {
   const offsetTop = $("#formBox").offset().top;
 
   $("html, body").animate({ scrollTop: offsetTop }, 500, function () {
-	$("#email").focus();
+    setTimeout(() => {
+      $("#email").focus();
+    }, 100);
   });
-}	
+}
 </script>
 
 
