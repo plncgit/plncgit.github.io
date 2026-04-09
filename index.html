@@ -17,6 +17,10 @@
 	  'https://connect.facebook.net/en_US/fbevents.js');
 	   fbq('init', '373375569871459');
 	   fbq('track', 'PageView');
+
+		if ('scrollRestoration' in history) {
+		history.scrollRestoration = 'manual';
+		}		
 	</script>
 
 	<noscript>
@@ -241,10 +245,6 @@ function scrollEmail() {
       $("#email").focus();
     }, 100);
   });
-}
-
-if ('scrollRestoration' in history) {
-history.scrollRestoration = 'manual';
 }
 
 window.onload = function () {
