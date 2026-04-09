@@ -18,12 +18,21 @@
 	   fbq('init', '373375569871459');
 	   fbq('track', 'PageView');
 
-	if ('scrollRestoration' in history) {
-	history.scrollRestoration = 'manual';
-	}
+	  if ('scrollRestoration' in history) {
+	    history.scrollRestoration = 'manual';
+	  }
+	
 	  document.addEventListener("DOMContentLoaded", function () {
-		window.scrollTo(0, 0);
-	  });		
+	    window.scrollTo(0, 0);
+	  });
+	
+	  window.addEventListener("load", function () {
+	    window.scrollTo(0, 0);
+	  });
+	
+	  setTimeout(() => {
+	    window.scrollTo(0, 0);
+	  }, 0);	
 	</script>
 
 	<noscript>
